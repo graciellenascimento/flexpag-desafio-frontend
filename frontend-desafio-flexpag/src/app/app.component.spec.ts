@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'desafio-frontend-flexpag'`, () => {
+  it(`should have as title 'frontend-desafio-flexpag'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('desafio-frontend-flexpag');
+    expect(app.title).toEqual('frontend-desafio-flexpag');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('desafio-frontend-flexpag app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('frontend-desafio-flexpag app is running!');
   });
 });

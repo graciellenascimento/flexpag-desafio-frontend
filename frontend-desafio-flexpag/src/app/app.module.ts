@@ -3,17 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { DadosVeiculoComponent } from './dados-veiculo/dados-veiculo.component';
-import { ValorVendaComponent } from './valor-venda/valor-venda.component';
-import { ResultadoValorComponent } from './resultado-valor/resultado-valor.component';
+import { VehicleDataComponent } from './views/vehicle-data/vehicle-data.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DadosVeiculoComponent,
-    ValorVendaComponent,
-    ResultadoValorComponent
+    VehicleDataComponent
   ],
   imports: [
     BrowserModule,

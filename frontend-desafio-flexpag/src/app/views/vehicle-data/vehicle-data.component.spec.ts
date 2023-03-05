@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResultadoValorComponent } from './resultado-valor.component';
+import { VehicleDataComponent } from './vehicle-data.component';
 
-describe('ResultadoValorComponent', () => {
-  let component: ResultadoValorComponent;
-  let fixture: ComponentFixture<ResultadoValorComponent>;
+describe('VehicleDataComponent', () => {
+  let component: VehicleDataComponent;
+  let fixture: ComponentFixture<VehicleDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResultadoValorComponent ]
+      declarations: [ VehicleDataComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ResultadoValorComponent);
+    fixture = TestBed.createComponent(VehicleDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
