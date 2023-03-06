@@ -75,8 +75,22 @@ export class VehicleDataService {
     );
   }
 
-  vehiclePriceFIPE(codigo: string, codigomodelo: number, codigoano: string): Observable<any> {
+  carPriceFIPE(codigo: string, codigomodelo: number, codigoano: string): Observable<any> {
     return this.http.get(`${this.base_url}carros/marcas/${codigo}/modelos/${codigomodelo}/anos/${codigoano}`).pipe(
+      map((response: any) => Object.values(response)),
+      tap(console.log)
+    );
+  }
+
+  motoPriceFIPE(codigo: string, codigomodelo: number, codigoano: string): Observable<any> {
+    return this.http.get(`${this.base_url}motos/marcas/${codigo}/modelos/${codigomodelo}/anos/${codigoano}`).pipe(
+      map((response: any) => Object.values(response)),
+      tap(console.log)
+    );
+  }
+
+  truckPriceFIPE(codigo: string, codigomodelo: number, codigoano: string): Observable<any> {
+    return this.http.get(`${this.base_url}caminhoes/marcas/${codigo}/modelos/${codigomodelo}/anos/${codigoano}`).pipe(
       map((response: any) => Object.values(response)),
       tap(console.log)
     );

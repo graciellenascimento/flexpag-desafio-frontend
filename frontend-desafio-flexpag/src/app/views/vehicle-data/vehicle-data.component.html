@@ -51,17 +51,17 @@
 
     <div [ngSwitch]="vehicleType">
         <!-- selecionar ano do veículo -->
-        <select *ngSwitchCase="'1'" [(ngModel)]="yearValue" (change)="vehicleFIPEPrice(itemCategories, carModelValue, yearValue)" class="form-select form-select-lg mb-3">
+        <select *ngSwitchCase="'1'" [(ngModel)]="carYearValue" (change)="carFIPEPrice(itemCategories, carModelValue, carYearValue)" class="form-select form-select-lg mb-3">
             <option selected>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
         </select>
 
-        <select *ngSwitchCase="'2'" class="form-select form-select-lg mb-3">
+        <select *ngSwitchCase="'2'" [(ngModel)]="motoYearValue" (change)="motoFIPEPrice(itemCategories, motoModelValue, motoYearValue)" class="form-select form-select-lg mb-3">
             <option selected>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
         </select>
 
-        <select *ngSwitchCase="'3'" class="form-select form-select-lg mb-3">
+        <select *ngSwitchCase="'3'" [(ngModel)]="truckYearValue" (change)="truckFIPEPrice(itemCategories, truckModelValue, truckYearValue)" class="form-select form-select-lg mb-3">
             <option selected>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
         </select>

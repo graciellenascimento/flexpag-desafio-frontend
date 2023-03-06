@@ -25,13 +25,17 @@ export class VehicleDataComponent {
   getYears!: any;
   modelList!:  VehicleModel[]
   yearList!:  VehicleYear[]
-  vehiclePriceFipe!: VehiclePrice[]
-  yearValue!: string
+  carPriceFipe!: VehiclePrice[]
+  carYearValue!: string
+  motoYearValue!: string
+  truckYearValue!: string
   testevalor!: any
   testenumber!: string
   convertToNumber!: number
+  motoPriceFipe!: VehiclePrice[];
+  truckPriceFipe!: VehiclePrice[];
 
-  testesenddata = this.vehiclePriceFipe
+  // testesenddata = this.carPriceFipe
  
   constructor(private service: VehicleDataService) {}
 
@@ -46,7 +50,9 @@ export class VehicleDataComponent {
     this.carModelValue = 1;
     this.motoModelValue = 1;
     this.truckModelValue = 1;
-    this.yearValue = "1"
+    this.carYearValue = "1"
+    this.motoYearValue = "1"
+    this.truckYearValue = "1"
 
   }
 
@@ -93,10 +99,30 @@ export class VehicleDataComponent {
     });
   }
 
-  vehicleFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
-    this.service.vehiclePriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
-      this.vehiclePriceFipe = response;
-      this.testevalor = this.vehiclePriceFipe
+  carFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
+    this.service.carPriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
+      this.carPriceFipe = response;
+      this.testevalor = this.carPriceFipe
+      // this.testenumber = this.testevalor.replace('R$ ', '').replace('.','')
+      // this.convertToNumber = parseFloat(this.testenumber)
+      // console.log(this.convertToNumber)
+    });
+  }
+
+  motoFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
+    this.service.motoPriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
+      this.motoPriceFipe = response;
+      this.testevalor = this.motoPriceFipe
+      // this.testenumber = this.testevalor.replace('R$ ', '').replace('.','')
+      // this.convertToNumber = parseFloat(this.testenumber)
+      // console.log(this.convertToNumber)
+    });
+  }
+
+  truckFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
+    this.service.truckPriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
+      this.truckPriceFipe = response;
+      this.testevalor = this.truckPriceFipe
       // this.testenumber = this.testevalor.replace('R$ ', '').replace('.','')
       // this.convertToNumber = parseFloat(this.testenumber)
       // console.log(this.convertToNumber)

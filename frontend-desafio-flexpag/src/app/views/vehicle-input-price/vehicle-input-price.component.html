@@ -1,3 +1,4 @@
+<!-- pega o valor que o usuário tem a intenção de vender o veículo -->
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">R$</span>
@@ -7,53 +8,78 @@
     <button type="submit" class="btn btn-primary">Consultar</button>
 </form>
 
+
+<!-- mostrar os dados do veículo e se está acima ou abaixo da média -->
 <div class="container">
     <div class="aboveAverage" *ngIf="aboveAverage">
-        <p>acima da media</p>
-    </div>
-
-    <div class="belowAverage" *ngIf="belowAverage">
-        <p>abaixo da media</p>
-    </div>
-
-    <div class="average" *ngIf="average">
-        <p>na media</p>
-    </div>
-    
-    <!-- <ng-template  #average>
-        <p>foi</p>
-    </ng-template>
-    
-    <ng-template  #belowAverage>
         <div class="row">
             <div class="col-4">
-                <span><b>Marca:</b></span>
-                <span><b>Modelo:</b></span>
-                <span><b>Ano do modelo:</b></span>
+                <span><b>Marca: {{ fipeBrand }}</b></span>
+                <span><b>Modelo: {{ fipeModel }} </b></span>
+                <span><b>Ano do modelo: {{ fipeYear }} </b></span>
             </div>
             <div class="col-6">
-                <span><b>Valor do veículo:</b></span>
-                <span><b>Valor pela FIPE:</b></span>
+                <span><b>Valor do veículo </b></span>
+                <span><b>Valor pela FIPE:</b> {{ getFIPEValue }} </span>
             </div>
             <div class="col-4">
-                <span><b>Código FIPE:</b></span>
-                <span><b>Mês referência:</b></span>
+                <span><b>Código FIPE: {{ fipeCode }} </b></span>
+                <span><b>Mês referência:</b> {{ fipeReferenceMonth }} </span>
             </div>
             <div class="col-8">
+                <h4>Valor acima da média da tabela FIPE</h4>
                 <p>
-                    {{ decimalDigits }}%
+                    {{ testeCalculo }}%
                 </p>
             </div>
         </div>
-    </ng-template> -->
-</div>
-
-<!-- <div class="container">
-    <div class="grid text-center">
-        <div class="g-col-6">{{ testeinput }}</div>
-        <div class="g-col-6">.g-col-6</div>
-
-        <div class="g-col-6">.g-col-6</div>
-        <div class="g-col-6">.g-col-6</div>
     </div>
-</div> -->
+
+    <div class="belowAverage" *ngIf="belowAverage">
+        <div class="row">
+            <div class="col-4">
+                <span><b>Marca: {{ fipeBrand }}</b></span>
+                <span><b>Modelo: {{ fipeModel }} </b></span>
+                <span><b>Ano do modelo: {{ fipeYear }} </b></span>
+            </div>
+            <div class="col-6">
+                <span><b>Valor do veículo </b></span>
+                <span><b>Valor pela FIPE:</b> {{ getFIPEValue }} </span>
+            </div>
+            <div class="col-4">
+                <span><b>Código FIPE: {{ fipeCode }} </b></span>
+                <span><b>Mês referência:</b> {{ fipeReferenceMonth }} </span>
+            </div>
+            <div class="col-8">
+                <h4>Valor abaixo da média da tabela FIPE</h4>
+                <p>
+                    {{ testeCalculo }}%
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="average" *ngIf="average">
+        <div class="row">
+            <div class="col-4">
+                <span><b>Marca:</b> {{ fipeBrand }}</span>
+                <span><b>Modelo:</b> {{ fipeModel }} </span>
+                <span><b>Ano do modelo:</b> {{ fipeYear }} </span>
+            </div>
+            <div class="col-6">
+                <span><b>Valor do veículo:</b></span>
+                <span><b>Valor pela FIPE:</b> {{ getFIPEValue }} </span>
+            </div>
+            <div class="col-4">
+                <span><b>Código FIPE:</b>  {{ fipeCode }} </span>
+                <span><b>Mês referência:</b> {{ fipeReferenceMonth }} </span>
+            </div>
+            <div class="col-8">
+                <h4>Valor na média da tabela FIPE</h4>
+                <p>
+                    {{ testeCalculo }}%
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

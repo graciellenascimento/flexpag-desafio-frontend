@@ -31,6 +31,7 @@ export class VehicleInputPriceComponent {
   onSubmit(f: NgForm){
     // console.log(f.value.price)
     console.log(parseFloat(f.value.price))
+    
     this.getFIPEValue = this.testeinput[0] //pega o primeiro valor do objeto que vem após a seleção do ano do veículo
     this.testenumber = this.getFIPEValue.replace('R$ ', '').replace('.','') //retira o R$ e o ponto do valor recebido pelo vehicle-data
     this.convertToNumber = parseFloat(this.testenumber) //transforma o valor em número para poder realizar o cálculo
