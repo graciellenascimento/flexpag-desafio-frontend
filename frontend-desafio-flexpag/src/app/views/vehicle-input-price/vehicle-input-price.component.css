@@ -36,7 +36,18 @@
 .belowAverage p {
     font-size: 138px;
     font-weight: bold;
-    color: #4d9900;
+    text-align: start;
+    margin-top: -40px;
+}
+.aboveAverage p {
+    font-size: 138px;
+    font-weight: bold;
+    text-align: start;
+    margin-top: -40px;
+}
+.average p {
+    font-size: 138px;
+    font-weight: bold;
     text-align: start;
     margin-top: -40px;
 }

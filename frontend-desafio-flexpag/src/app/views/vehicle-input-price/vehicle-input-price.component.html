@@ -16,19 +16,19 @@
     <div class="aboveAverage" *ngIf="aboveAverage">
         <div class="row">
             <div class="col-4">
-                <span><b>Marca: {{ fipeBrand }}</b></span>
-                <span><b>Modelo: {{ fipeModel }} </b></span>
-                <span><b>Ano do modelo: {{ fipeYear }} </b></span>
+                <span><b>Marca:</b> {{ fipeBrand }} </span>
+                <span><b>Modelo:</b> {{ fipeModel }} </span>
+                <span><b>Ano do modelo:</b> {{ fipeYear }} </span>
             </div>
             <div class="col-6">
-                <span><b>Valor do veículo </b></span>
+                <span><b>Valor do veículo:</b> R$ {{ sellValueInput }} </span>
                 <span><b>Valor pela FIPE:</b> {{ getFIPEValue }} </span>
             </div>
             <div class="col-4">
-                <span><b>Código FIPE: {{ fipeCode }} </b></span>
+                <span><b>Código FIPE:</b> {{ fipeCode }} </span>
                 <span><b>Mês referência:</b> {{ fipeReferenceMonth }} </span>
             </div>
-            <div class="col-8">
+            <div class="col-6" style="color: #ff3333;">
                 <h4>Valor acima da média da tabela FIPE</h4>
                 <p>
                     {{ testeCalculo }}%
@@ -69,14 +69,14 @@
                 <span><b>Ano do modelo:</b> {{ fipeYear }} </span>
             </div>
             <div class="col-6">
-                <span><b>Valor do veículo:</b></span>
+                <span><b>Valor do veículo:</b>R$ {{ sellValueInput }} </span>
                 <span><b>Valor pela FIPE:</b> {{ getFIPEValue }} </span>
             </div>
             <div class="col-4">
                 <span><b>Código FIPE:</b>  {{ fipeCode }} </span>
                 <span><b>Mês referência:</b> {{ fipeReferenceMonth }} </span>
             </div>
-            <div class="col-8">
+            <div class="col-6" style="color: #fed11c;">
                 <h4>Valor na média da tabela FIPE</h4>
                 <p>
                     {{ testeCalculo }}%
