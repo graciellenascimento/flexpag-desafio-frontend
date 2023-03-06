@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { findIndex } from 'rxjs';
+import { Component, Input } from '@angular/core';
+import { findIndex, Observable } from 'rxjs';
 import { VehicleDataService } from 'src/app/controller/vehicle-data.service';
 import { VehicleData, VehicleModel, VehicleYear } from 'src/app/models/vehicle-data';
+import { VehiclePrice } from 'src/app/models/vehicle-price';
 
 @Component({
   selector: 'app-vehicle-data',
@@ -24,6 +25,13 @@ export class VehicleDataComponent {
   getYears!: any;
   modelList!:  VehicleModel[]
   yearList!:  VehicleYear[]
+  vehiclePriceFipe!: VehiclePrice[]
+  yearValue!: string
+  testevalor!: any
+  testenumber!: string
+  convertToNumber!: number
+
+  testesenddata = this.vehiclePriceFipe
  
   constructor(private service: VehicleDataService) {}
 
@@ -32,12 +40,13 @@ export class VehicleDataComponent {
     this.service.carsList().subscribe(data => this.carType = data); //Chamando serviço para listagem de marcas de carro
     this.service.motoList().subscribe(data => this.motoType = data); //Chamando serviço para listagem de marcas de moto
     this.service.truckList().subscribe(data => this.truckType = data); //Chamando serviço para listagem de marcas de moto
-    this.itemCategories = "1";
+    this.itemCategories = "0";
     // this.truckTypeValue = "1";
     // this.motoTypeValue = "1";
     this.carModelValue = 1;
     this.motoModelValue = 1;
     this.truckModelValue = 1;
+    this.yearValue = "1"
 
   }
 
@@ -68,21 +77,32 @@ export class VehicleDataComponent {
     });
   }
 
-  listCarYear(codigo: string, codigoano: number) {    
-    this.service.listCarYears(codigo, codigoano).subscribe( response => {
+  listCarYear(codigo: string, codigomodelo: number) {    
+    this.service.listCarYears(codigo, codigomodelo).subscribe( response => {
       this.yearList = response;
     });
   }
-  listMotoYear(codigo: string, codigoano: number) {    
-    this.service.listMotoYears(codigo, codigoano).subscribe( response => {
+  listMotoYear(codigo: string, codigomodelo: number) {    
+    this.service.listMotoYears(codigo, codigomodelo).subscribe( response => {
       this.yearList = response;
     });
   }
-  listTruckYear(codigo: string, codigoano: number) {    
-    this.service.listTruckYears(codigo, codigoano).subscribe( response => {
+  listTruckYear(codigo: string, codigomodelo: number) {    
+    this.service.listTruckYears(codigo, codigomodelo).subscribe( response => {
       this.yearList = response;
     });
   }
+
+  vehicleFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
+    this.service.vehiclePriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
+      this.vehiclePriceFipe = response;
+      this.testevalor = this.vehiclePriceFipe[0]
+      // this.testenumber = this.testevalor.replace('R$ ', '').replace('.','')
+      // this.convertToNumber = parseFloat(this.testenumber)
+      // console.log(this.convertToNumber)
+    });
+  }
+
   
 
 }

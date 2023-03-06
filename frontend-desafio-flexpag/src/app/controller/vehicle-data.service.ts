@@ -54,22 +54,29 @@ export class VehicleDataService {
     );
   }
 
-  listCarYears(codigo: string, codigoano: number): Observable<any> {
-    return this.http.get(`${this.base_url}carros/marcas/${codigo}/modelos/${codigoano}/anos`).pipe(
+  listCarYears(codigo: string, codigomodelo: number): Observable<any> {
+    return this.http.get(`${this.base_url}carros/marcas/${codigo}/modelos/${codigomodelo}/anos`).pipe(
       map((response: any) => Object.values(response)),
       tap(console.log)
     );
   }
 
-  listMotoYears(codigo: string, codigoano: number): Observable<any> {
-    return this.http.get(`${this.base_url}motos/marcas/${codigo}/modelos/${codigoano}/anos`).pipe(
+  listMotoYears(codigo: string, codigomodelo: number): Observable<any> {
+    return this.http.get(`${this.base_url}motos/marcas/${codigo}/modelos/${codigomodelo}/anos`).pipe(
       map((response: any) => Object.values(response)),
       tap(console.log)
     );
   }
 
-  listTruckYears(codigo: string, codigoano: number): Observable<any> {
-    return this.http.get(`${this.base_url}caminhoes/marcas/${codigo}/modelos/${codigoano}/anos`).pipe(
+  listTruckYears(codigo: string, codigomodelo: number): Observable<any> {
+    return this.http.get(`${this.base_url}caminhoes/marcas/${codigo}/modelos/${codigomodelo}/anos`).pipe(
+      map((response: any) => Object.values(response)),
+      tap(console.log)
+    );
+  }
+
+  vehiclePriceFIPE(codigo: string, codigomodelo: number, codigoano: string): Observable<any> {
+    return this.http.get(`${this.base_url}carros/marcas/${codigo}/modelos/${codigomodelo}/anos/${codigoano}`).pipe(
       map((response: any) => Object.values(response)),
       tap(console.log)
     );

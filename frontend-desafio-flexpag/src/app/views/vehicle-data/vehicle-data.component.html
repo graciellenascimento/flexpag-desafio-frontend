@@ -9,8 +9,7 @@
     <div [ngSwitch]="vehicleType" ngDefaultControl>
         <!-- Mostrar select com as marcas dependendo do tipo de veículo escolhido. por exemplo: 
         caso 1 para carro, caso 2 para moto e caso 3 para caminhão -->
-        <select *ngSwitchCase="'1'" [(ngModel)]="itemCategories" (change)="listCarModel(itemCategories)"
-            class="form-select form-select-lg mb-3 vehicle-data">
+        <select *ngSwitchCase="'1'" [(ngModel)]="itemCategories" (change)="listCarModel(itemCategories)" class="form-select form-select-lg mb-3 vehicle-data">
             <option selected>Selecione a marca</option>
             <option *ngFor="let type of carType" [value]="type.codigo">{{type.nome}}</option>
         </select>
@@ -30,7 +29,7 @@
         <!-- selecionar modelo do veículo -->
         <select *ngSwitchCase="'1'" [(ngModel)]="carModelValue" (change)="listCarYear(itemCategories, carModelValue)"
             class="form-select form-select-lg mb-3">
-            <option selected>Selecione o modelo</option>
+            <option value="0">Selecione o modelo</option>
             <option *ngFor="let model of getModels" [value]="model.codigo">{{model.nome}}</option>
         </select>
 
@@ -52,7 +51,7 @@
 
     <div [ngSwitch]="vehicleType">
         <!-- selecionar ano do veículo -->
-        <select *ngSwitchCase="'1'" class="form-select form-select-lg mb-3">
+        <select *ngSwitchCase="'1'" [(ngModel)]="yearValue" (change)="vehicleFIPEPrice(itemCategories, carModelValue, yearValue)" class="form-select form-select-lg mb-3">
             <option selected>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
         </select>
@@ -66,7 +65,7 @@
             <option selected>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
         </select>
-
     </div>
-
 </div>
+
+<app-vehicle-input-price [testeinput]="testevalor"></app-vehicle-input-price>
