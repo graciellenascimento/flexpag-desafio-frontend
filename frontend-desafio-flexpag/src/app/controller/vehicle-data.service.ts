@@ -8,7 +8,8 @@ import { VehicleData } from '../models/vehicle-data';
 })
 export class VehicleDataService {
 
-  private readonly base_url = 'https://parallelum.com.br/fipe/api/v1/' //url base da requisição
+  //url base
+  private readonly base_url = 'https://parallelum.com.br/fipe/api/v1/' 
 
   constructor(private http: HttpClient) { } //injeta o HttpClient
 
