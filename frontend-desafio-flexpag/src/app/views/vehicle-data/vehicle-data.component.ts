@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { findIndex, Observable } from 'rxjs';
+// import { findIndex, Observable } from 'rxjs';
 import { VehicleDataService } from 'src/app/controller/vehicle-data.service';
 import { VehicleData, VehicleModel, VehicleYear } from 'src/app/models/vehicle-data';
 import { VehiclePrice } from 'src/app/models/vehicle-price';
@@ -12,30 +12,25 @@ import { VehiclePrice } from 'src/app/models/vehicle-price';
 export class VehicleDataComponent {
 
   vehicleType!: string;
-  carType!: VehicleData[];
-  motoType!: VehicleData[]; 
-  truckType!: VehicleData[];
   itemCategories!: string;
   truckTypeValue!: string;
   motoTypeValue!: string;
-  carModelValue!: number
-  motoModelValue!: number;
-  truckModelValue!: number;
-  getModels!: any;
-  getYears!: any;
-  modelList!:  VehicleModel[]
-  yearList!:  VehicleYear[]
-  carPriceFipe!: VehiclePrice[]
   carYearValue!: string
   motoYearValue!: string
   truckYearValue!: string
-  testevalor!: any
-  testenumber!: string
-  convertToNumber!: number
+  carModelValue!: number
+  motoModelValue!: number;
+  truckModelValue!: number;
+  getRequestResponse!: any
+  getModels!: any;
+  carType!: VehicleData[];
+  motoType!: VehicleData[]; 
+  truckType!: VehicleData[];
+  modelList!:  VehicleModel[]
+  yearList!:  VehicleYear[]
+  carPriceFipe!: VehiclePrice[]
   motoPriceFipe!: VehiclePrice[];
   truckPriceFipe!: VehiclePrice[];
-
-  // testesenddata = this.carPriceFipe
  
   constructor(private service: VehicleDataService) {}
 
@@ -45,8 +40,6 @@ export class VehicleDataComponent {
     this.service.motoList().subscribe(data => this.motoType = data); //Chamando serviço para listagem de marcas de moto
     this.service.truckList().subscribe(data => this.truckType = data); //Chamando serviço para listagem de marcas de moto
     this.itemCategories = "0";
-    // this.truckTypeValue = "1";
-    // this.motoTypeValue = "1";
     this.carModelValue = 1;
     this.motoModelValue = 1;
     this.truckModelValue = 1;
@@ -61,7 +54,6 @@ export class VehicleDataComponent {
       this.modelList = response;
 
       this.getModels = this.modelList[0]
-      console.log(this.getModels)
     });
   }
 
@@ -70,7 +62,6 @@ export class VehicleDataComponent {
       this.modelList = response;
 
       this.getModels = this.modelList[0]
-      console.log(this.getModels)
     });
   }
 
@@ -79,7 +70,6 @@ export class VehicleDataComponent {
       this.modelList = response;
 
       this.getModels = this.modelList[0]
-      console.log(this.getModels)
     });
   }
 
@@ -102,30 +92,21 @@ export class VehicleDataComponent {
   carFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
     this.service.carPriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
       this.carPriceFipe = response;
-      this.testevalor = this.carPriceFipe
-      // this.testenumber = this.testevalor.replace('R$ ', '').replace('.','')
-      // this.convertToNumber = parseFloat(this.testenumber)
-      // console.log(this.convertToNumber)
+      this.getRequestResponse = this.carPriceFipe
     });
   }
 
   motoFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
     this.service.motoPriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
       this.motoPriceFipe = response;
-      this.testevalor = this.motoPriceFipe
-      // this.testenumber = this.testevalor.replace('R$ ', '').replace('.','')
-      // this.convertToNumber = parseFloat(this.testenumber)
-      // console.log(this.convertToNumber)
+      this.getRequestResponse = this.motoPriceFipe
     });
   }
 
   truckFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
     this.service.truckPriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
       this.truckPriceFipe = response;
-      this.testevalor = this.truckPriceFipe
-      // this.testenumber = this.testevalor.replace('R$ ', '').replace('.','')
-      // this.convertToNumber = parseFloat(this.testenumber)
-      // console.log(this.convertToNumber)
+      this.getRequestResponse = this.truckPriceFipe
     });
   }
 

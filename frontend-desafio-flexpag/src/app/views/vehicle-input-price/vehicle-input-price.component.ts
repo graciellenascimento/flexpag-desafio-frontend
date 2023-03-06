@@ -9,14 +9,13 @@ import { VehicleDataComponent } from '../vehicle-data/vehicle-data.component';
 })
 export class VehicleInputPriceComponent {
 
-  @Input() testeinput!: any //recebe o valor do veículo do arquivo vehicle-data para fazer o cálculo
+  @Input() receiveVehicleData!: any //recebe o valor do veículo do arquivo vehicle-data para fazer o cálculo
 
-  testeCalculo!: number
+  percentageCalculation!: number
   getFIPEValue!: string
-  testenumber!: string
+  replaceStringDetails!: string
   convertToNumber!: number
   decimalDigits!: string
-  sorpraver!: string
   fipeBrand!: string;
   fipeModel!: string;
   fipeYear!: number;
@@ -29,42 +28,28 @@ export class VehicleInputPriceComponent {
   average!: boolean;
   sellValueInput!: number;
 
-  onSubmit(f: NgForm){
-    // console.log(f.value.price)
-    console.log(parseFloat(f.value.price))
-    
+  onSubmit(f: NgForm) {
     this.sellValueInput = f.value.price
-    this.getFIPEValue = this.testeinput[0] //pega o primeiro valor do objeto que vem após a seleção do ano do veículo
-    this.testenumber = this.getFIPEValue.replace('R$ ', '').replace('.','') //retira o R$ e o ponto do valor recebido pelo vehicle-data
-    this.convertToNumber = parseFloat(this.testenumber) //transforma o valor em número para poder realizar o cálculo
-    this.testeCalculo = +((((parseFloat(f.value.price)-this.convertToNumber)/this.convertToNumber)*100).toPrecision(2)) //cálculo para retirar média do valor de acordo com a tabela FIPE e .toPrecision() para reduzir as casas decimais para 2
-    // this.decimalDigits = this.testeCalculo.toFixed(2) //deixar apenas 2 casas decimais
+    this.getFIPEValue = this.receiveVehicleData[0] //pega o primeiro valor do objeto que vem após a seleção do ano do veículo
+    this.replaceStringDetails = this.getFIPEValue.replace('R$ ', '').replace('.', '') //retira o R$ e o ponto do valor recebido pelo vehicle-data
+    this.convertToNumber = parseFloat(this.replaceStringDetails) //transforma o valor em número para poder realizar o cálculo
+    this.percentageCalculation = +((((parseFloat(f.value.price) - this.convertToNumber) / this.convertToNumber) * 100).toPrecision(2)) //cálculo para retirar média do valor de acordo com a tabela FIPE e .toPrecision() para reduzir as casas decimais para 2
 
-    this.aboveAverage = this.testeCalculo >= 10
-    this.belowAverage = this.testeCalculo <= -10
-    this.average = this.aboveAverage == false && this.belowAverage == false
+    this.aboveAverage = this.percentageCalculation >= 10 //checa se o calculo é maior ou menor que 10. caso esteja, o valor está acima da média
+    this.belowAverage = this.percentageCalculation <= -10 //checa se o calculo é menor ou maior que 10. caso esteja, o valor está abaixo da média
+    this.average = this.aboveAverage == false && this.belowAverage == false //checa se o cálculo está entre -9.99 ~ 9.99. caso esteja, o valor está na média
 
-    console.log(this.convertToNumber)
-    // console.log(this.testeinput[0])
-    console.log(this.convertToNumber+1000)
-    console.log(this.testeCalculo)
-    console.log(this.testeCalculo <= 10)
-    console.log(this.average)
-
-    this.fipeBrand = this.testeinput[1] //marca do veículo
-    this.fipeModel = this.testeinput[2] //mode-lo do veículo
-    this.fipeYear = this.testeinput[3] //ano do veículo
-    this.fipeFuel = this.testeinput[4] //tipo de combustível do veículo
-    this.fipeCode = this.testeinput[5] //código fipe 
-    this.fipeReferenceMonth = this.testeinput[6] //mês de referência
-
+    this.fipeBrand = this.receiveVehicleData[1] //marca do veículo
+    this.fipeModel = this.receiveVehicleData[2] //modelo do veículo
+    this.fipeYear = this.receiveVehicleData[3] //ano do veículo
+    this.fipeFuel = this.receiveVehicleData[4] //tipo de combustível do veículo
+    this.fipeCode = this.receiveVehicleData[5] //código fipe 
+    this.fipeReferenceMonth = this.receiveVehicleData[6] //mês de referência
   }
 
-  constructor() {}
+  constructor() { }
 
 
-  ngOnInit(): void {
-    this.sorpraver = '1'    
-  }
+  ngOnInit(): void { }
 
 }
