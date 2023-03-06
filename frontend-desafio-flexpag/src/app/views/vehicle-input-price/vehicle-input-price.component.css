@@ -1,11 +1,47 @@
-.select-data {
+.form-container {
     display: flex;
     justify-content: center;
+    gap: 9px;
 }
 
-.select-data select {
-    background-color: #808080;
-    color: #fff;
+.form-container button {
+    height: 50px;
+    width: 234px;
+}
+
+.form-container form {
+    width: 76%;
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+}
+
+#input-container {
+    height: 50px;
+}
+
+.display-container {
+    text-align: start;
+}
+
+.display-container span{
+    display: block;
+    /* justify-content: center; */
+}
+
+.display-container h4 {
+    margin: 0
+}
+
+.belowAverage p {
+    font-size: 138px;
     font-weight: bold;
-    width: fit-content;
+    color: #4d9900;
+    text-align: start;
+    margin-top: -40px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
 }
