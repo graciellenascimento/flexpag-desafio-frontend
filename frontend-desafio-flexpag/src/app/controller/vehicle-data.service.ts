@@ -8,91 +8,85 @@ import { VehicleData } from '../models/vehicle-data';
 })
 export class VehicleDataService {
 
-  private readonly base_url = 'https://parallelum.com.br/fipe/api/v1/'
+  private readonly base_url = 'https://parallelum.com.br/fipe/api/v1/' //url base da requisição
 
   constructor(private http: HttpClient) { } //injeta o HttpClient
 
-  carsList() {
+  //listagem dos carros
+  carsList() { 
     return this.http.get<VehicleData[]>(this.base_url + 'carros/marcas')
       .pipe(
         tap(console.log)
       )
   }
 
-  motoList() {
+  //listagem das motos
+  motoList() {  
     return this.http.get<VehicleData[]>(this.base_url + 'motos/marcas')
       .pipe(
         tap(console.log)
       )
   }
 
-  truckList() {
+  //listagem dos caminhões
+  truckList() {  
     return this.http.get<VehicleData[]>(this.base_url + 'caminhoes/marcas')
       .pipe(
         tap(console.log)
       )
   }
 
-  listCarModels(codigo: string): Observable<any> {
+  //listagem dos modelos dos carros
+  listCarModels(codigo: string): Observable<any> {  
     return this.http.get(`${this.base_url}carros/marcas/${codigo}/modelos`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)));
   }
 
-  listMotoModels(codigo: string): Observable<any> {
+  //listagem dos modelos das motos
+  listMotoModels(codigo: string): Observable<any> { 
     return this.http.get(`${this.base_url}motos/marcas/${codigo}/modelos`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)));
   }
 
-  listTruckModels(codigo: string): Observable<any> {
+  //listagem dos modelos dos caminhões
+  listTruckModels(codigo: string): Observable<any> { 
     return this.http.get(`${this.base_url}caminhoes/marcas/${codigo}/modelos`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)));
   }
 
-  listCarYears(codigo: string, codigomodelo: number): Observable<any> {
+  //listagem dos anos dos carros
+  listCarYears(codigo: string, codigomodelo: number): Observable<any> { 
     return this.http.get(`${this.base_url}carros/marcas/${codigo}/modelos/${codigomodelo}/anos`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)));
   }
 
+  //listagem dos anos das motos
   listMotoYears(codigo: string, codigomodelo: number): Observable<any> {
     return this.http.get(`${this.base_url}motos/marcas/${codigo}/modelos/${codigomodelo}/anos`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)));
   }
 
-  listTruckYears(codigo: string, codigomodelo: number): Observable<any> {
+  //listagem dos anos dos caminhões
+  listTruckYears(codigo: string, codigomodelo: number): Observable<any> { 
     return this.http.get(`${this.base_url}caminhoes/marcas/${codigo}/modelos/${codigomodelo}/anos`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)));
   }
 
+  //dados dos carros de acordo com a tabela FIPE
   carPriceFIPE(codigo: string, codigomodelo: number, codigoano: string): Observable<any> {
     return this.http.get(`${this.base_url}carros/marcas/${codigo}/modelos/${codigomodelo}/anos/${codigoano}`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)));
   }
 
+  //dados das motos de acordo com a tabela FIPE
   motoPriceFIPE(codigo: string, codigomodelo: number, codigoano: string): Observable<any> {
     return this.http.get(`${this.base_url}motos/marcas/${codigo}/modelos/${codigomodelo}/anos/${codigoano}`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)),);
   }
 
+  //dados dos caminhões de acordo com a tabela FIPE
   truckPriceFIPE(codigo: string, codigomodelo: number, codigoano: string): Observable<any> {
     return this.http.get(`${this.base_url}caminhoes/marcas/${codigo}/modelos/${codigomodelo}/anos/${codigoano}`).pipe(
-      map((response: any) => Object.values(response)),
-      tap(console.log)
-    );
+      map((response: any) => Object.values(response)));
   }
 }

@@ -1,3 +1,4 @@
+//tipagem dos dados recebidos após a coleta das informações do veículo
 export interface VehiclePrice {
     Valor: string;
     Marca: string;

@@ -13,6 +13,7 @@
 
 <!-- mostrar os dados do veículo e se está acima ou abaixo da média -->
 <div class="display-container container">
+    <!-- caso esteja acima da media -->
     <div class="aboveAverage" *ngIf="aboveAverage">
         <div class="row">
             <div class="col-4">
@@ -37,6 +38,7 @@
         </div>
     </div>
 
+    <!-- caso esteja abaixo da media -->
     <div class="belowAverage" *ngIf="belowAverage">
         <div class="row">
             <div class="col-4">
@@ -61,6 +63,7 @@
         </div>
     </div>
 
+    <!-- caso esteja na media -->
     <div class="average" *ngIf="average">
         <div class="row">
             <div class="col-4">
