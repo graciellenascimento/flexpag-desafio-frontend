@@ -96,7 +96,7 @@ export class VehicleDataComponent {
   vehicleFIPEPrice(codigo: string, codigomodelo: number, codigoano: string) {    
     this.service.vehiclePriceFIPE(codigo, codigomodelo, codigoano).subscribe( response => {
       this.vehiclePriceFipe = response;
-      this.testevalor = this.vehiclePriceFipe[0]
+      this.testevalor = this.vehiclePriceFipe
       // this.testenumber = this.testevalor.replace('R$ ', '').replace('.','')
       // this.convertToNumber = parseFloat(this.testenumber)
       // console.log(this.convertToNumber)

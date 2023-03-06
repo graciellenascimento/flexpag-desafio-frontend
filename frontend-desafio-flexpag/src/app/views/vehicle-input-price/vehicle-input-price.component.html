@@ -1,8 +1,59 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)"> 
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">R$</span>
-        <input type="text" class="form-control" placeholder="Qual o preço que você planeja vender o veículo?" aria-label="Username" aria-describedby="basic-addon1" name="price" ngModel>
+        <input type="text" class="form-control" placeholder="Qual o preço que você planeja vender o veículo?"
+            aria-label="Username" aria-describedby="basic-addon1" name="price" ngModel>
     </div>
     <button type="submit" class="btn btn-primary">Consultar</button>
 </form>
 
+<div class="container">
+    <div class="aboveAverage" *ngIf="aboveAverage">
+        <p>acima da media</p>
+    </div>
+
+    <div class="belowAverage" *ngIf="belowAverage">
+        <p>abaixo da media</p>
+    </div>
+
+    <div class="average" *ngIf="average">
+        <p>na media</p>
+    </div>
+    
+    <!-- <ng-template  #average>
+        <p>foi</p>
+    </ng-template>
+    
+    <ng-template  #belowAverage>
+        <div class="row">
+            <div class="col-4">
+                <span><b>Marca:</b></span>
+                <span><b>Modelo:</b></span>
+                <span><b>Ano do modelo:</b></span>
+            </div>
+            <div class="col-6">
+                <span><b>Valor do veículo:</b></span>
+                <span><b>Valor pela FIPE:</b></span>
+            </div>
+            <div class="col-4">
+                <span><b>Código FIPE:</b></span>
+                <span><b>Mês referência:</b></span>
+            </div>
+            <div class="col-8">
+                <p>
+                    {{ decimalDigits }}%
+                </p>
+            </div>
+        </div>
+    </ng-template> -->
+</div>
+
+<!-- <div class="container">
+    <div class="grid text-center">
+        <div class="g-col-6">{{ testeinput }}</div>
+        <div class="g-col-6">.g-col-6</div>
+
+        <div class="g-col-6">.g-col-6</div>
+        <div class="g-col-6">.g-col-6</div>
+    </div>
+</div> -->
