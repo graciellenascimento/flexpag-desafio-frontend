@@ -1,12 +1,17 @@
 <div class="select-data">
     <!-- Selecionar tipo de veículo (carro, moto ou caminhão)-->
-    <select [(ngModel)]="vehicleType" ngDefaultControl class="form-select form-select-lg mb-3">
-        <option [value]="1">Carro</option>
-        <option [value]="2">Moto</option>
-        <option [value]="3">Caminhão</option>
-    </select>
+    <div>
+        <span>Tipo de veículo</span>
+        <select [(ngModel)]="vehicleType" id="selectVehicle" ngDefaultControl class="form-select form-select-lg mb-3">
+            <option [value]="1">Carro</option>
+            <option [value]="2">Moto</option>
+            <option [value]="3">Caminhão</option>
+        </select>
+    </div>
 
+    <!-- selecionar marca do veículo -->
     <div [ngSwitch]="vehicleType" ngDefaultControl>
+        <span>Marca</span>
         <!-- Mostrar select com as marcas dependendo do tipo de veículo escolhido.
         switch case = 1 para carro, switch case = 2 para moto e switch case = 3 para caminhão -->
         <select *ngSwitchCase="'1'" [(ngModel)]="itemCategories" (change)="listCarModel(itemCategories)" class="form-select form-select-lg mb-3 vehicle-data">
@@ -29,6 +34,7 @@
     <!-- selecionar modelo do veículo -->
     <div [ngSwitch]="vehicleType" ngDefaultControl>
         <!-- selecionar modelo do carro -->
+        <span>Modelo</span>
         <select *ngSwitchCase="'1'" [(ngModel)]="carModelValue" (change)="listCarYear(itemCategories, carModelValue)"
             class="form-select form-select-lg mb-3">
             <option value="0">Selecione o modelo</option>
@@ -54,6 +60,7 @@
     <!-- selecionar ano do veículo -->
     <div [ngSwitch]="vehicleType">
         <!-- selecionar ano do carro -->
+        <span>Ano</span>
         <select *ngSwitchCase="'1'" [(ngModel)]="carYearValue" (change)="carFIPEPrice(itemCategories, carModelValue, carYearValue)" class="form-select form-select-lg mb-3">
             <option selected>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
