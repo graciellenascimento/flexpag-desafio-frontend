@@ -16,6 +16,13 @@
     gap: 9px;
 }
 
+.form-container input {
+    text-align: start !important;
+    font-size: 20px;
+    font-weight: 600;
+    color: #3c3b3b;
+}
+
 #input-container {
     height: 50px;
 }
@@ -26,7 +33,6 @@
 
 .display-container span{
     display: block;
-    /* justify-content: center; */
 }
 
 .display-container h4 {
@@ -55,4 +61,17 @@
 .row {
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .form-container {
+        display: block;
+        text-align: -webkit-center;
+    }
+
+    .form-container form {
+        width: 49%;
+        display: block;
+    }
+
 }

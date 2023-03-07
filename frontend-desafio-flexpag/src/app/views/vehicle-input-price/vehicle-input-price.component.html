@@ -3,8 +3,8 @@
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
         <div class="input-group mb-3" id="input-container">
             <span class="input-group-text" id="basic-addon1">R$</span>
-            <input type="text" class="form-control" placeholder="Qual o preço que você planeja vender o veículo?"
-                aria-label="Username" aria-describedby="basic-addon1" name="price" ngModel>
+            <input type="text" class="form-control" placeholder="Qual o preço que você planeja vender o veículo?" aria-label="Username" aria-describedby="basic-addon1" 
+            name="price" currencyMask [(ngModel)]="sellValueInput" [options]="{ prefix: '', thousands: '.', decimal: ',' }">
         </div>
         <button type="submit" class="btn btn-primary">Consultar</button>
     </form>

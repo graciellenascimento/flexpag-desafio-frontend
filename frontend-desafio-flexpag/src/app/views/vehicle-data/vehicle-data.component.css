@@ -9,3 +9,18 @@
     font-weight: bold;
     width: 250px
 }
+
+@media only screen and (max-width: 990px) {
+    .select-data {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .select-data {
+        display: block;
+        text-align: -webkit-center;
+    }
+}

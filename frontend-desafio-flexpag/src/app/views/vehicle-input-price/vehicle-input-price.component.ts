@@ -26,14 +26,14 @@ export class VehicleInputPriceComponent {
   aboveAverage!: boolean;
   belowAverage!: boolean;
   average!: boolean;
-  sellValueInput!: number;
+  sellValueInput!: string;
 
   onSubmit(f: NgForm) {
     this.sellValueInput = f.value.price
     this.getFIPEValue = this.receiveVehicleData[0] //pega o primeiro valor do objeto que vem após a seleção do ano do veículo
-    this.replaceStringDetails = this.getFIPEValue.replace('R$ ', '').replace('.', '') //retira o R$ e o ponto do valor recebido pelo vehicle-data
+    this.replaceStringDetails = this.getFIPEValue.replace('R$ ', '').replace('.', '').replace(',','') //retira o R$ e o ponto do valor recebido pelo vehicle-data
     this.convertToNumber = parseFloat(this.replaceStringDetails) //transforma o valor em número para poder realizar o cálculo
-    this.percentageCalculation = +((((parseFloat(f.value.price) - this.convertToNumber) / this.convertToNumber) * 100).toPrecision(2)) //cálculo para retirar média do valor de acordo com a tabela FIPE e .toPrecision() para reduzir as casas decimais para 2
+    this.percentageCalculation = +((((parseFloat(this.sellValueInput) - this.convertToNumber) / this.convertToNumber) * 100).toPrecision(2)) //cálculo para retirar média do valor de acordo com a tabela FIPE e .toPrecision() para reduzir as casas decimais para 2
 
     this.aboveAverage = this.percentageCalculation >= 10 //checa se o calculo é maior ou menor que 10. caso esteja, o valor está acima da média
     this.belowAverage = this.percentageCalculation <= -10 //checa se o calculo é menor ou maior que 10. caso esteja, o valor está abaixo da média

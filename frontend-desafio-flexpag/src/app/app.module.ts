@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { VehicleDataComponent } from './views/vehicle-data/vehicle-data.component';
 import { FormsModule } from '@angular/forms';
 import { VehicleInputPriceComponent } from './views/vehicle-input-price/vehicle-input-price.component';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { VehicleInputPriceComponent } from './views/vehicle-input-price/vehicle-
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CurrencyMaskModule
   ],
-  providers: [VehicleDataComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
