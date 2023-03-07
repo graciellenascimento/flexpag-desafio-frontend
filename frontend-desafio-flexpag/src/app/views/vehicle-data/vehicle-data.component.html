@@ -15,17 +15,17 @@
         <!-- Mostrar select com as marcas dependendo do tipo de veículo escolhido.
         switch case = 1 para carro, switch case = 2 para moto e switch case = 3 para caminhão -->
         <select *ngSwitchCase="'1'" [(ngModel)]="itemCategories" (change)="listCarModel(itemCategories)" class="form-select form-select-lg mb-3 vehicle-data">
-            <option selected>Selecione a marca</option>
+            <option disabled>Selecione a marca</option>
             <option *ngFor="let type of carType" [value]="type.codigo">{{type.nome}}</option>
         </select>
 
         <select *ngSwitchCase="'2'" [(ngModel)]="itemCategories"  (change)="listMotoModel(itemCategories)" class="form-select form-select-lg mb-3">
-            <option selected>Selecione a marca</option>
+            <option disabled>Selecione a marca</option>
             <option *ngFor="let type of motoType" [value]="type.codigo">{{type.nome}}</option>
         </select>
 
         <select *ngSwitchCase="'3'" [(ngModel)]="itemCategories"  (change)="listTruckModel(itemCategories)" class="form-select form-select-lg mb-3">
-            <option selected>Selecione a marca</option>
+            <option disabled>Selecione a marca</option>
             <option *ngFor="let type of truckType" [value]="type.codigo">{{type.nome}}</option>
         </select>
     </div>
@@ -37,21 +37,21 @@
         <span>Modelo</span>
         <select *ngSwitchCase="'1'" [(ngModel)]="carModelValue" (change)="listCarYear(itemCategories, carModelValue)"
             class="form-select form-select-lg mb-3">
-            <option value="0">Selecione o modelo</option>
+            <option disabled>Selecione o modelo</option>
             <option *ngFor="let model of getModels" [value]="model.codigo">{{model.nome}}</option>
         </select>
 
         <!-- selecionar modelo da moto -->
         <select *ngSwitchCase="'2'"  [(ngModel)]="motoModelValue" (change)="listMotoYear(itemCategories, motoModelValue)"
             class="form-select form-select-lg mb-3">
-            <option selected>Selecione o modelo</option>
+            <option disabled>Selecione o modelo</option>
             <option *ngFor="let model of getModels" [value]="model.codigo">{{model.nome}}</option>
         </select>
 
         <!-- selecionar modelo do caminhão -->
         <select *ngSwitchCase="'3'" [(ngModel)]="truckModelValue" (change)="listTruckYear(itemCategories, truckModelValue)"
             class="form-select form-select-lg mb-3">
-            <option selected>Selecione o modelo</option>
+            <option disabled>Selecione o modelo</option>
             <option *ngFor="let model of getModels" [value]="model.codigo">{{model.nome}}</option>
         </select>
 
@@ -62,19 +62,19 @@
         <!-- selecionar ano do carro -->
         <span>Ano</span>
         <select *ngSwitchCase="'1'" [(ngModel)]="carYearValue" (change)="carFIPEPrice(itemCategories, carModelValue, carYearValue)" class="form-select form-select-lg mb-3">
-            <option selected>Selecione o ano</option>
+            <option disabled>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
         </select>
 
         <!-- selecionar ano da moto -->
         <select *ngSwitchCase="'2'" [(ngModel)]="motoYearValue" (change)="motoFIPEPrice(itemCategories, motoModelValue, motoYearValue)" class="form-select form-select-lg mb-3">
-            <option selected>Selecione o ano</option>
+            <option disabled>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
         </select>
 
         <!-- selecionar ano do caminhão -->
         <select *ngSwitchCase="'3'" [(ngModel)]="truckYearValue" (change)="truckFIPEPrice(itemCategories, truckModelValue, truckYearValue)" class="form-select form-select-lg mb-3">
-            <option selected>Selecione o ano</option>
+            <option disabled>Selecione o ano</option>
             <option *ngFor="let year of yearList" [value]="year.codigo">{{year.nome}}</option>
         </select>
     </div>

@@ -39,12 +39,12 @@ export class VehicleDataComponent {
     this.service.motoList().subscribe(data => this.motoType = data); //Chamando serviço para listagem de marcas de moto
     this.service.truckList().subscribe(data => this.truckType = data); //Chamando serviço para listagem de marcas de moto
     this.itemCategories = "0"; 
-    this.carModelValue = 1; //define o valor default do select de modelo do carro
-    this.motoModelValue = 1; //define o valor default do select de modelo da moto
-    this.truckModelValue = 1; //define o valor default do select de modelo do caminhão
-    this.carYearValue = "1" //define o valor default do select de ano do carro
-    this.motoYearValue = "1" //define o valor default do select de modelo da moto
-    this.truckYearValue = "1" //define o valor default do select de modelo do caminhão
+    this.carModelValue = 0; //define o valor default do select de modelo do carro
+    this.motoModelValue = 0; //define o valor default do select de modelo da moto
+    this.truckModelValue = 0; //define o valor default do select de modelo do caminhão
+    this.carYearValue = "0" //define o valor default do select de ano do carro
+    this.motoYearValue = "0" //define o valor default do select de modelo da moto
+    this.truckYearValue = "0" //define o valor default do select de modelo do caminhão
 
   }
 
